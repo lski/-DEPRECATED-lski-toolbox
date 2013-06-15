@@ -383,18 +383,37 @@
 					});
 				},
 
-				// find: function(arr, comparer) {
-					
-					// for (var i = 0, n = arr.length; i < n; i++) {
+				find: function(arr, comparer) {
 
-						// if (comparer(arr[i]))
-							// return arr[i];
-					// }
+                    // If not a function, then wrap the value so it can be used in the loop
+                    if(typeof comparer !== 'function' ) {
 
-					// return null;
-				// },
+                        var original = comparer;
+                        comparer = function (arrItem) {
+                            return arrItem == original;
+                        };
+                    }
+
+
+                    for (var i = 0, n = arr.length; i < n; i++) {
+
+                        if (comparer(arr[i]))
+                            return arr[i];
+                    }
+
+                    return null;
+                },
 				
 				// findIndex: function(arr, comparer) {
+
+                    // If not a function, then wrap the value so it can be used in the loop
+                    //if(typeof comparer !== 'function' ) {
+
+                    //    var original = comparer;
+                    //    comparer = function (arrItem) {
+                    //        return arrItem == original;
+                    //    };
+                    //}
 					
 					// for (var i = 0, n = arr.length; i < n; i++) {
 
@@ -407,6 +426,15 @@
 				
 				// findIndexAll: function(arr, comparer) {
 				
+                    // If not a function, then wrap the value so it can be used in the loop
+                    //if(typeof comparer !== 'function' ) {
+
+                    //    var original = comparer;
+                    //    comparer = function (arrItem) {
+                    //        return arrItem == original;
+                    //    };
+                    //}
+
 					// var returnArr = [];
 				
 					// for (var i = 0, n = arr.length; i < n; i++) {
