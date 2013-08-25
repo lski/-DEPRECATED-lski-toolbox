@@ -14,31 +14,36 @@
 <base href="/" />
 
 <link href="/styles/lski-reset.css" rel="stylesheet" type="text/css" />	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js" type="text/javascript"></script>
-	<script src="/scripts/lski-toolbox.js" type="text/javascript"></script>
+<script src="/scripts/lski-toolbox.js" type="text/javascript"></script>
 
 <script>
 
-	$(function() {
+    document.addEventListener('DOMContentLoaded', function () {
 
-		var results = [
-			lski.number.format(null, 2),
-			lski.number.format(null, 2, false),
-			lski.number.format(null, 2, true),
-			lski.number.format(12.4, 2, true),
-			lski.number.format("23432412.56567", 2),
-			lski.number.format("23423412.56567", 2, true),
-			lski.number.format(23423412344234234.56567, 2, true) + " - Shows the limitations of the parseFloat",
-			lski.number.format("3412344234234.56567", 2, true)
-		];
-		
-		var $ul = $('#lstResults');
-		
-		for(i = 0, n = results.length; i < n; i++) {
-			$ul.append('<li>' + results[i] + '</li>');
-		}
-	});
-	
+        var results = [
+            lski.number.format(null, 2),
+            lski.number.format(null, 2, false),
+            lski.number.format(null, 2, true),
+            lski.number.format(12.4, 2, true),
+            lski.number.format("23432412.56567", 2),
+            lski.number.format("23423412.56567", 2, true),
+            lski.number.format(23423412344234234.56567, 2, true) + " - Shows the limitations of the parseFloat",
+            lski.number.format("3412344234234.56567", 2, true)
+        ];
+     
+        var ul = document.getElementById('lstResults');
+
+        for (i = 0, n = results.length; i < n; i++) {
+
+            var li = document.createElement('li');
+            var txt = document.createTextNode(results[i]);
+
+            li.appendChild(txt);
+            ul.appendChild(li);
+        }
+
+    }, false);
+
 </script>
 
 </head>
