@@ -1,4 +1,4 @@
-﻿
+
 ;(function(window, document, undefined) {
 
     /**
@@ -72,7 +72,7 @@
 				*/
                 parseMsDate: function (key, value) {
 
-                    if (typeof value == 'string' && value.match("^/Date\\((\\d+)\\)/$"))
+                    if (typeof value === 'string' && value.match("^/Date\\((\\d+)\\)/$"))
                         return new Date(parseInt(value.replace(/\/Date\((-?\d+)\)\//, '$1')));
 
                     return value;
